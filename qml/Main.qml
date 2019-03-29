@@ -30,7 +30,7 @@ GameWindow {
         // background rectangle matching the logical scene size (= safe zone available on all devices)
         // see here for more details on content scaling and safe zone: https://felgo.com/doc/felgo-different-screen-sizes/
         Rectangle {
-            id: rectangle
+            id: rect
             anchors.fill: parent
             color: "grey"
 
