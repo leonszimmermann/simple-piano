@@ -19,12 +19,7 @@ GameWindow {
                     color: "#ffffff"
                     note: modelData
                 }
-
-
             }
 
         }
-
-
-
 }
