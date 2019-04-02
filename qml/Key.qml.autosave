@@ -9,7 +9,7 @@ Rectangle {
         id: mouseArea
         anchors.fill: parent
         onClicked: sound.play()
-        onReleased: pressAnimation.start()
+        onPressed: pressAnimation.start()
     }
 
     property variant note

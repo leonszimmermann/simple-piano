@@ -1,6 +1,6 @@
 import Felgo 3.0
 import QtQuick 2.0
-
+import QtQuick.Controls 1.4
 
 GameWindow {
 
@@ -13,61 +13,31 @@ GameWindow {
         fillMode: Image.Stretch
     }
 
-        Row {
-            id: white
-            anchors.fill: parent
-            anchors.centerIn: parent
-            spacing: width/8/6
-            width: parent.width
+    ScrollView {
 
-            Repeater {
-                model: ["c4","d4","e4","f4","g4","a4","b4"]
+        height: parent.height
+        width: parent.width
 
-                Key {
-                    width: parent.width/8
-                    height: parent.height
-                    color: 'white'
-                    note: modelData
-                }
-            }
-
-        }
+        verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
         Row {
-            id: left_black
-            height: parent.height*0.6
-            spacing: parent.width/8/6
-            anchors.left: parent.left
-            anchors.leftMargin: parent.width/8/2+parent.width/8/6/2
+            property var octaves: [4, 5]
+            property int tile_width: dp(40)
+            property int tile_distance: dp(5)
+
+            width: octaves.length*7*(tile_width+tile_distance)
+            height: gameWindow.height
+
+            spacing: tile_distance
 
             Repeater {
-                model: ["c-4","d-4"]
+                model: parent.octaves
 
-                Key {
-                    width: gameWindow.width/8
-                    height: parent.height
-                    color:'black'
-                    note: modelData
+                PianoOctave {
+                    number: modelData
                 }
             }
         }
 
-        Row {
-            id: right_black
-            height: parent.height*0.6
-            spacing: parent.width/8/6
-            anchors.right: parent.right
-            anchors.rightMargin: parent.width/8/2
-
-            Repeater {
-                model: ["f-4", "g-4", "a-4"]
-
-                Key {
-                    width: gameWindow.width/8
-                    height: parent.height
-                    color:'black'
-                    note: modelData
-                }
-            }
-        }
+    }
 }

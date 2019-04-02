@@ -53,4 +53,5 @@ macx {
 }
 
 DISTFILES += \
-    qml/Key.qml
+    qml/Key.qml \
+    qml/PianoOctave.qml
